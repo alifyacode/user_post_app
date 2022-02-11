@@ -33,12 +33,25 @@ class _UsersPostState extends State<UsersPost> {
   @override
   Widget build(BuildContext context) {
     final post = Provider.of<PostProvider>(context);
-    return _isLoading
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          "User Post",
+          style: TextStyle(
+            color: Color(0xff474787),
+            fontSize: 23,
+          ),
+        ),
+        backgroundColor: Colors.white,
+        elevation: 0,
+      ),
+      body:_isLoading
         ? Center(child: CircularProgressIndicator())
         : ListView.builder(
             itemCount: post.postList.length,
             itemBuilder: (context, int index) {
               return PostContainer(post.postList[index]);
-            });
+            }),
+    );
   }
 }
