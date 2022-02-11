@@ -1,13 +1,19 @@
 
 import 'package:flutter/material.dart';
+import 'package:user_post_app/page/album_page.dart';
+import 'package:user_post_app/page/comment_page.dart';
 
 class CommentContainer extends StatelessWidget {
-  var Comment;
-  CommentContainer(this.Comment);
+  var album;
+  CommentContainer(this.album);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return GestureDetector(
+        onTap: () {
+          Navigator.of(context).push(MaterialPageRoute(builder: (context) => AlbumPage(id: album.id)));
+    },
+      child: Container(
         margin: EdgeInsets.only(left: 10, right: 10, top: 10),
         padding: EdgeInsets.only(left: 10, right: 10, top: 10),
         //height: 150,
@@ -33,7 +39,8 @@ class CommentContainer extends StatelessWidget {
             ],
           ),
         ),
-      );
+      ),
+    );
   }
 
   Widget _CommentTitle() {
@@ -49,7 +56,7 @@ class CommentContainer extends StatelessWidget {
           Flexible(
               child:
               Text(
-            Comment.name,
+            album.name,
             style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.w500,
@@ -63,7 +70,7 @@ class CommentContainer extends StatelessWidget {
 
   Widget _CommentBody() {
     return Text(
-      Comment.body,
+      album.body,
       style: TextStyle(
         fontSize: 16,
       ),

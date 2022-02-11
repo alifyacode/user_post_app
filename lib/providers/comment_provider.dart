@@ -6,7 +6,7 @@ import 'package:user_post_app/models/comment_model.dart';
 class CommentProvider extends ChangeNotifier {
   List commentList = [];
   Future<void> fetchComment(int postId) async {
-    var url = Uri.parse("https://jsonplaceholder.typicode.com/users/$postId/comments");
+    var url = Uri.parse("https://jsonplaceholder.typicode.com/posts/$postId/comments");
     Response response = await get(url);
 
     List<CommentModel> _tempList = [];

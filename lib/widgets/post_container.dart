@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:user_post_app/page/my_tab_bar.dart';
+import 'package:user_post_app/page/comment_page.dart';
 
 class PostContainer extends StatelessWidget {
   var post;
@@ -9,7 +9,7 @@ class PostContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyTabBar(id: post.id)));
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) => CommentPage(id: post.id)));
     },
 
       child:Container(
@@ -34,9 +34,6 @@ class PostContainer extends StatelessWidget {
             _postBody(),
             SizedBox(
               width: MediaQuery.of(context).size.width * 0.85,
-              child: Divider(
-                thickness: 1,
-              ),
             ),
           ],
         ),
